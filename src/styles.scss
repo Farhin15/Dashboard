@@ -1,0 +1,98 @@
+/* Chart container styles */
+.chart-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+/* Dashboard card styles */
+.dashboard-card {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 10px;
+  border-top-right-radius: 50px;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  h4 {
+    transition: all 0.3s;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  p {
+    transition: all 0.3s;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  &:hover {
+    background-image: url("./assets/images/service-bg.jpg");
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h4,
+    p,
+    .text-button a {
+      color: #fff;
+    }
+  }
+}
+
+/* Dark theme styles */
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Fixed toggle button styles */
+.fixed-toggle-btn {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  background: #f1f1f1;
+  transform: translateY(-50%);
+  z-index: 9;
+}
+
+/* Navbar styles */
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+  .navbar-brand.sec {
+    display: block !important;
+
+    img {
+      max-width: 160px;
+    }
+  }
+}
+
+/* Dark theme overrides */
+.dark-theme {
+  background-color: #121212;
+  color: white;
+
+  .card, .table, td, th, .dashboard-card {
+    background-color: #1e1e1e !important;
+    color: white;
+  }
+
+  .navbar {
+    background-color: #333 !important;
+  }
+}

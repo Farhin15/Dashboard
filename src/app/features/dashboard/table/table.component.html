@@ -1,0 +1,68 @@
+<div class="container mt-3">
+    <!-- Filters -->
+    <div class="row mb-3">
+      <div class="col-md-4">
+            <input [(ngModel)]="searchTerm" (input)="resetPage()" class="form-control" placeholder="Search Name">
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th (click)="changeSorting('transactionId')">ID <span *ngIf="sortColumn === 'transactionId'"><i
+                                *ngIf="sortDirection ==='asc'" class="bi bi-arrow-up">
+                            </i><i *ngIf="sortDirection === 'desc'" class="bi bi-arrow-down"></i></span>
+                    </th>
+                    <th (click)="changeSorting('date')">Name <span *ngIf="sortColumn === 'date'"><i
+                                *ngIf="sortDirection ==='asc'" class="bi bi-arrow-up">
+                            </i><i *ngIf="sortDirection === 'desc'" class="bi bi-arrow-down"></i></span></th>
+                    <th (click)="changeSorting('amount')">Role <span *ngIf="sortColumn === 'amount'"><i
+                                *ngIf="sortDirection ==='asc'" class="bi bi-arrow-up">
+                            </i><i *ngIf="sortDirection === 'desc'" class="bi bi-arrow-down"></i></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="filteredTransactions?.length; else noData"> 
+                <tr *ngFor="let user of paginate(filteredTransactions)">
+                    <td>{{ user.transactionId }}</td>
+                    <td>{{ user.date }}</td>
+                    <td>{{ user.amount }}</td>
+                </tr>
+            </ng-container>
+            <ng-template #noData>
+                <tr>
+                    <td class="text-center w-100" colspan="3"></td>
+                </tr>
+            </ng-template>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-between">
+        <div>
+            <label class="me-2">Page Size:</label>
+            <select style="min-width: 60px;" [(ngModel)]="pageSize" (change)="resetPage()"
+                class="form-control d-inline-block w-auto">
+                <option [value]="5">5</option>
+                <option [value]="10">10</option>
+                <option [value]="15">15</option>
+            </select>
+        </div>
+
+        <ul class="pagination">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" (click)="resetPage()">«</a>
+            </li>
+            <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index"
+                [class.active]="currentPage === i+1">
+                <a class="page-link" (click)="currentPage = i+1; applyFilters()">{{ i+1 }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <a class="page-link" (click)="currentPage = totalPages; applyFilters()">»</a>
+            </li>
+        </ul>
+    </div>
+</div>

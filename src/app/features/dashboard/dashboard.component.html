@@ -1,0 +1,42 @@
+<div class="container mt-4">
+     <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-4 col-md-6 my-3">
+                    <div class="dashboard-card first-service" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+                        data-aos-duration="2000">
+                        <div class="icon"></div>
+                        <h4>Sales</h4>
+                         <p id="sales-revenue" class="card-text">${{metrics?.sales || 0}}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 my-3">
+                    <div class="dashboard-card second-service" data-aos="fade-up"
+                        data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">
+                        <div class="icon"></div>
+                        <h4>Active Users</h4>
+                         <p id="active-users" class="card-text">{{metrics?.users || 0}}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 my-3">
+                    <div class="dashboard-card third-service" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+                        data-aos-duration="2000">
+                        <div class="icon"></div>
+                        <h4>Orders</h4>
+                        <p id="orders" class="card-text">{{metrics?.orders || 0}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+     <app-sales-chart></app-sales-chart>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+    <app-table></app-table>
+    </div>
+  </div>
+</div>

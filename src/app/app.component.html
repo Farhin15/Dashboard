@@ -1,0 +1,38 @@
+<!-- app.component.html -->
+<!-- <nav [class.fixed]="isHeaderFixed"  class="navbar navbar-expand-lg navbar-{{isDarkMode ? 'dark' : 'light'}} bg-{{isDarkMode ? 'dark' : 'light'}} px-3">
+  <a class="navbar-brand" (click)="openNav = false" routerLink="/">Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="openNav = !openNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse d-block" id="navbarNav" #navbarNav>
+    <ul class="navbar-nav mr-auto">
+      <li (click)="openNav = !openNav" class="nav-item"><a class="nav-link" routerLink="/dashboard">Home</a></li>
+      <li (click)="openNav = !openNav" class="nav-item"><a class="nav-link" routerLink="/reports">Reports</a></li>
+      <li (click)="openNav = !openNav" class="nav-item"><a class="nav-link" routerLink="/settings">Settings</a></li>
+    </ul>
+  </div> -->
+
+    <nav [class.fixed]="isHeaderFixed" class="navbar navbar-expand-lg bg-body-tertiary navbar-{{isDarkMode ? 'dark' : 'light'}} bg-{{isDarkMode ? 'dark' : 'light'}}">
+      <div class="container-fluid">
+        <a class="navbar-brand"  routerLink="/">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="/dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active"routerLink="/reports">Reports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="/settings">Settings</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <button class="btn btn-outline-light fixed-toggle-btn" (click)="toggleDarkMode()"><i class="bi bi-{{isDarkMode ? 'sun' : 'moon'}}-fill text-{{isDarkMode ? 'warning' : 'info'}}"></i></button>
+<!-- </nav> -->
+<router-outlet></router-outlet>
